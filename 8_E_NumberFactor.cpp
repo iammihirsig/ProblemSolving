@@ -1,19 +1,39 @@
 /*
 Goal: To find all the factors of an input number.
-NOTE: The idea is to limit the iteration to the square root of num and check in repeated pattern for factor.
-And one more important thing is that (num / i != i) is there to prevent the repetition of a single factor in case if the num is a perfect square.
+NOTE: The idea is to limit the iteration to the square root of num and check in a repeated pattern for factors.
+One important condition (num / i != i) prevents duplication in case num is a perfect square.
 
-TC Analysis:
-- Finding Factors: O(sqrt(n))
-  - The loop runs up to sqrt(n), and each valid divisor is added to the list.
-- Sorting the Factors: O(k log k)
-  - Where k is the number of factors.
-  - In the worst case, k ≈ O(sqrt(n)), so sorting takes O(sqrt(n) log sqrt(n)).
-  - Since sorting a list of k elements takes O(k log k) time, we substitute k ≈ O(sqrt(n)), leading to:
-    O(k log k) = O(sqrt(n) log sqrt(n))
-  - Using logarithm properties: log(sqrt(n)) = (1/2) log(n), we rewrite:
-    O(sqrt(n) log sqrt(n)) = O(sqrt(n) log n)
+TC: O(√n log n)
+SC: O(√n)
+
+Explanation of Time Complexity:
+1. Finding Factors (O(√n)):
+  - We iterate only up to √n because every factor i has a corresponding factor num / i.
+  - Each iteration adds at most 2 factors (i and num / i).
+  - Hence, the number of factors is at most 2√n.
+
+2. Sorting Factors (O(√n log n)):
+  - The number of factors (k) is at most 2√n.
+  - Sorting k elements takes O(k log k).
+  - Substituting k = O(2√n): O(2√n log (2√n))
+  - Since constants are ignored in Big-O notation, O(2√n) simplifies to O(√n).
+  - Using the logarithmic property (log(2√n) = log 2 + log(√n))
+  - we drop constants and get: O(√n log n)
+
+3. Printing Factors (O(√n)):
+   - We print at most 2√n factors, taking O(√n) time.
+   - Since O(√n log n) dominates O(√n), printing doesn’t affect the final complexity.
+
+Final Time Complexity: O(√n log n)
+
+Explanation of Space Complexity:
+- We store at most 2√n factors in a vector.
+- Since constants are ignored in Big-O, O(2√n) simplifies to O(√n).
+- If we avoid storing factors and print them directly, we can optimize space to O(1).
+
+Final Space Complexity: O(√n)
 */
+
 
 #include <iostream>
 #include <vector>    // for vector
@@ -21,28 +41,25 @@ TC Analysis:
 using namespace std;
 
 // function declaration
-vector<int> findFactors(int num)
+void findFactors(int num, vector<int> &answerList)
 {
-  // creating factorList to store all the factors
-  vector<int> factorList;
-
-  // factor check and if true then push factor to factorList
+  // factor check and if true then push factor to answerList
   for (int i = 1; i * i <= num; i++)
   {
     if (num % i == 0)
     {
-      factorList.push_back(i);
+      answerList.push_back(i);
       if (num / i != i)
       {
-        factorList.push_back(num / i);
+        answerList.push_back(num / i);
       }
     }
   }
 
-  // sort the factorList (time complexity: O(sqrt(n) log n))
-  sort(factorList.begin(), factorList.end());
+  // sort the answerList (time complexity: O(sqrt(n) log n))
+  sort(answerList.begin(), answerList.end());
 
-  return factorList;
+  return answerList;
 }
 
 int main()
@@ -51,10 +68,13 @@ int main()
   int num;
   cin >> num;
 
-  // call findFactors() (space complexity: O(n))
-  vector<int> answerList = findFactors(num);
+  // creating answerList
+  vector<int> answerList;
 
-  // print answerList (time complexity: O(n))
+  // call findFactors()
+  findFactors(num, answerList);
+
+  // print answerList
   for (auto i : answerList)
   {
     cout << i << " ";
