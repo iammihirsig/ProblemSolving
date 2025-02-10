@@ -2,7 +2,7 @@
 Goal: To find all prime number till n using optimized approach called "Sieve Of Eratosthenes"
 NOTE: This is must to know algo for interview
 
-TC: O(n log log n)
+TC: O(n log log n) : To understand time complexity, just know that it forms a harmonic series of prime which approximate give this time complexity
 SC: O(n)
 */
 
