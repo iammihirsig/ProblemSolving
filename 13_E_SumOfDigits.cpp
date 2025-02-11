@@ -6,8 +6,24 @@ NOTE: Extract digit and add
 TC: O(log n)   // The number of digits is log₁₀(n), so we iterate O(log n) times
 SC: O(1)       // Only a few variables are used, so constant space is needed
 
-TC Explanation: The time complexity of calculating the sum of digits of a number is O(log(n)) where "n" is the number itself; essentially, it takes a constant amount of time per digit in the number, making the complexity directly proportional to the number of digits (which is logarithmic in the value of the number). Since dividing a number by 10 roughly halves its size (in terms of number of digits), the number of iterations required to reach zero is proportional to the logarithm of the input number (log(n)).
+TC Explanation: Explanation:
+A number 'n' has 'd' digits if: 10^(d-1) <= n < 10^d
 
+Examples:
+  If n = 9, then 1 digit  (since 10^0 = 1 ≤ 9 < 10^1 = 10)
+If n = 567, then 3 digits (since 10^2 = 100 ≤ 567 < 10^3 = 1000)
+  If n = 12345, then 5 digits (since 10^4 = 10000 ≤ 12345 < 10^5 = 100000)
+
+Formula: d = floor(log10(n)) + 1
+
+Why O(log n) time complexity?
+- Each iteration removes one digit (by dividing by 10).
+- The number of iterations equals the number of digits.
+- Since the number of digits is O(log n), the overall complexity is O(log n).
+
+Additional Insight:
+- Since we divide by 10 in each step, the number of steps is **equal to the number of digits**.
+- This gives us O(log_10 n), which is written as O(log n) because logarithms in different bases differ only by a constant factor..
 */
 
 #include <iostream>
