@@ -34,7 +34,6 @@ Explanation of Space Complexity:
 Final Space Complexity: O(√n)
 */
 
-
 #include <iostream>
 #include <vector>    // for vector
 #include <algorithm> // for sort
@@ -59,7 +58,7 @@ void findFactors(int num, vector<int> &answerList)
   // sort the answerList (time complexity: O(sqrt(n) log n))
   sort(answerList.begin(), answerList.end());
 
-  return answerList;
+  return;
 }
 
 int main()
