@@ -2,8 +2,8 @@
 Goal: To find all prime number in a given range using optimized approach called "Segmented Sieve Of Eratosthenes"
 NOTE: This is must to know algo for interview
 
-TC: O(sqrt(end) * log log sqrt(end) + (end - start) * log log end)
-SC: O(sqrt(end))
+TC: O(√end log log √end)
+SC: O(√end)
 */
 
 #include <iostream>
