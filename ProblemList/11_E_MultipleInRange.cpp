@@ -2,7 +2,7 @@
 Goal: To find all the multiples of a given number in a range
 
 TC: O((end - start) / num)
-SC: O(1)
+SC: O((end - start) / num)
 */
 
 #include <iostream>
