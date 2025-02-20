@@ -12,7 +12,7 @@ using namespace std;
 // function declaration
 bool isPositive(int num)
 {
-  return (num >= 0);
+  return (num > 0); // 0 is neither positive nor negative
 }
 
 int main()
