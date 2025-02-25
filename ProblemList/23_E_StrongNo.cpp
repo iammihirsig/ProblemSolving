@@ -1,6 +1,6 @@
 /*
 Goal: To find whether the input no is a strong number
-NOTE: For Example: 145 = 1! x 4! x 5! =  145
+NOTE: For Example: 145 = 1! + 4! + 5! =  145
 
 TC: O(log n)
 SC: O(1)
