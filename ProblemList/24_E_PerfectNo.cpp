@@ -15,13 +15,13 @@ int factorSum(int num)
   if (num == 1)
     return 0; // Edge case: 1 is not a perfect number
 
-  int ans = 1; // 1 is always a divisor (excluding `num` itself)
-  for (int i = 2; i * i <= num; i++)
+  int ans = 1;                       // 1 is always a divisor (excluding `num` itself)
+  for (int i = 2; i * i <= num; i++) // Start from 2
   {
     if (num % i == 0)
     {
       ans += i;
-      if (num / i != i) // Avoid adding the same divisor twice
+      if (num / i != i) // Avoid adding the same divisor twice for perfect squares
       {
         ans += num / i;
       }
@@ -43,11 +43,11 @@ int main()
 
   if (isPerfectNo(num))
   {
-    cout << "Perfect No." << endl;
+    cout << num << " is a Perfect Number." << endl;
   }
   else
   {
-    cout << "Not a Perfect No." << endl;
+    cout << num << " is NOT a Perfect Number." << endl;
   }
 
   return 0;
