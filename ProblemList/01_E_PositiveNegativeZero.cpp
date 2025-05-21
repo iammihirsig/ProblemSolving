@@ -2,6 +2,8 @@
 Author : Mihir Raj Singh
 Title : Check if number is positive, negative or zero
 Date & Time : 2025-05-21 10:35:13
+Time Complexity: O(1)
+Space Complexity: O(1)
 */
 
 #include <iostream>
