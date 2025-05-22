@@ -13,7 +13,7 @@ using namespace std;
 void printIsLeapYear(int val)
 {
   string status;
-  status = (val % 400 == 0) ? "Leap Year" : ((val % 4 == 0 && val % 100 != 0) ? "Leap Year" : "Not A Leap Year");
+  status = ((val % 400 == 0) || (val % 4 == 0 && val % 100 != 0)) ? "Leap Year" : "Not A Leap Year";
   cout << "The Year \"" << val << "\" is: " << status << endl;
 }
 
