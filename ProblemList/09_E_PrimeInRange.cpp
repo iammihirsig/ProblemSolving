@@ -13,16 +13,13 @@ using namespace std;
 bool isPrime(int val)
 {
   // if val is one and less than one it is not prime
-  if (val <= 1)
-  {
-    return false;
-  }
   // if val is 2 it is prime hence, do nothing coz default status true
   // if val is a multiple of 2 then it is not prime, coz 2 is the only even prime
-  if (val % 2 == 0 && val != 2)
+  if (val <= 1 || (val % 2 == 0 && val != 2))
   {
     return false;
   }
+
   // now, let's check odds
   for (int i = 3; i * i <= val; i += 2)
   {
