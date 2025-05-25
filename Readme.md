@@ -1,6 +1,5 @@
-<div align="center">
-  <img src="Banner.png" alt="Banner" />
-</div>
+![image (1)](https://github.com/user-attachments/assets/16792cf6-e6c5-4624-a898-025f090015ad)
+
 
 # ProblemSolving
 
