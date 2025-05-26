@@ -2,8 +2,8 @@
 Author : Mihir Raj Singh
 Title : Reverse a user given number
 Date & Time : 2025-05-22 21:44:15
-Time Complexity :
-Space Complexity :
+Time Complexity : O(log n)
+Space Complexity : O(1)
 */
 
 #include <iostream>
